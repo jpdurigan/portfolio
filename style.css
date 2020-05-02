@@ -1,6 +1,9 @@
+html {
+	background-color: #F7F7F2;
+}
+
 body {
 	font-family: 'Roboto Slab', serif;
-	background-color: #F7F7F2;
 }
 
 header {

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html  lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>portfolio - jp durigan</title>
+
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<div class="caixa-menu aberta" id="cabecalho">
+				<h1 class="btn ativo" id="nome" onclick="filtrarPor('nenhum')">JP Durigan</h1>
+
+				<nav>
+					<ul>
+						<li class="btn" onclick="filtrarPor('todos')">Todos</li>
+						<li class="btn" onclick="filtrarPor('prod')">Produção audiovisual</li>
+						<li class="btn" onclick="filtrarPor('motion')">Motion design</li>
+						<li class="btn" onclick="filtrarPor('music')">Produção musical</li>
+						<li class="btn" onclick="filtrarPor('host')">Como apresentador</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<ul class="trabalhos">
+				<li class="tag prod motion">
+					<div class="caixa-img">
+						<a href="https://youtu.be/u4r_Te8Sxm0">
+						<img src="imgs/afershow.png">
+						<h2 class="titulo-trabalho">Afer Show</h2></a>
+					</div>
+					<p class="funcao">Criação + Montagem + Vinhetas</p>
+					<p>programa de tv inspirado em Art Attack e Bob Ross</p>
+				</li>
+				<li class="tag music motion">
+					<div class="caixa-img">
+						<a href="https://youtu.be/bR21PrjruXg">
+						<img src="imgs/ymmwina.png">
+						<h2 class="titulo-trabalho">YMMWINA</h2></a>
+					</div>
+					<p class="funcao">Produção musical + Animação</p>
+					<p>remix da música <em>You'll miss me when I'm not around</em>, de Grimes</p>
+				</li>
+				<li class="tag prod host">
+					<div class="caixa-img">
+						<a href="https://www.youtube.com/watch?v=it1mBpgCwrk">
+						<img src="imgs/criticodovagao.png">
+						<h2 class="titulo-trabalho">Crítico do Vagão</h2></a>
+					</div>				
+					<p class="funcao">Apresentação + Texto</p>
+					<p>resenhas semanais de livros entre uma estação e outra</p>
+				</li>
+				<li class="tag prod host">
+					<div class="caixa-img">
+						<a href="https://youtu.be/kdOI4MSBvjY">
+						<img src="imgs/coracoesmascados.jpg">
+						<h2 class="titulo-trabalho">Corações Mascados</h2></a>
+					</div>
+					<p class="funcao">Criação + Apresentação</p>
+					<p>paródia de novela mexicana misturada com "Você Decide?"</p>
+				</li>
+				<li class="tag prod">
+					<div class="caixa-img">
+						<a href="https://www.facebook.com/houseofmonstra/">
+						<img src="imgs/monstra.png">
+						<h2 class="titulo-trabalho">Monstra</h2></a>
+					</div>
+					<p class="funcao">Assistência de direção</p>
+					<p>Monstra narra seu mito-manifesto: da morte à vida, da vida à luta</p>
+				</li>
+				<li class="tag prod">
+					<div class="caixa-img">
+						<a href="https://vimeo.com/338993567">
+						<img src="imgs/ronda.jpeg">
+						<h2 class="titulo-trabalho">Ronda</h2></a>
+					</div>
+					<p class="funcao">Assistência de direção</p>
+					<p>Hélio, segurança desempregado, ronda a cidade por sua função</p>
+				</li>
+				<li class="tag prod">
+					<div class="caixa-img">
+						<a href="https://www.youtube.com/watch?v=3Rs8Cny1pIY">
+						<img src="imgs/eunaoseidancar.png">
+						<h2 class="titulo-trabalho">Eu Não Sei Dançar</h2></a>
+					</div>
+					<p class="funcao">Assistência de direção</p>
+					<p>segundo clipe da cantora pop CHONPS</p>
+				</li>
+				<li class="tag prod">
+					<div class="caixa-img">
+						<a href="https://www.youtube.com/watch?v=kX_NXVRLVF0">
+						<img src="imgs/oniria.png">
+						<h2 class="titulo-trabalho">Oníria</h2></a>
+					</div>
+					<p class="funcao">Produção</p>
+					<p>EP visual de Rafael Flexor, indie e rock alternativo</p>
+				</li>
+		</main>
+
+		<script type="text/javascript">
+			const ArrayCores = ["#C9F672", "#F7F7F2", "#F5CA43", "#F45B69", "#88B7B5"];
+			alterarCores();
+
+			function alterarCores() {
+				var lista, ordemCor, i, num;
+				lista = $(".tag");
+				ordemCor = [];
+
+				for (i = 0; i < ArrayCores.length; i++) {
+					num = Math.floor(Math.random() * (ArrayCores.length));
+
+					while (!ArrayCores[num]) {
+						num = Math.floor(Math.random() * (ArrayCores.length));
+					}
+
+					ordemCor.push(ArrayCores[num]);
+					ArrayCores[num] = null;
+				}
+
+				for (i = 0; i < lista.length; i++) {
+					num = i%ordemCor.length;
+					$(lista[i]).css("backgroundColor", ordemCor[num]);
+				}
+			}
+
+			// adaptado de exemplo do W3School
+			function filtrarPor(c) {
+				var listaCompleta, i;
+				listaCompleta = document.getElementsByClassName("tag");
+				if (c == "todos") c = "";
+				for (i = 0; i < listaCompleta.length; i++) {
+					Ocultar(listaCompleta[i], "show");
+					if (listaCompleta[i].className.indexOf(c) > -1) {
+						Exibir(listaCompleta[i], "show");
+					}
+				}
+			}
+
+			function Exibir(element, name) {
+				var i, arrayElemento, arrayPropriedade;
+				arrayElemento = element.className.split(" ");
+				arrayPropriedade = name.split(" ");
+				for (i = 0; i < arrayPropriedade.length; i++) {
+					if (arrayElemento.indexOf(arrayPropriedade[i]) == -1) {
+						// se não tiver a propriedade "show", recebe
+						element.className += " " + arrayPropriedade[i];
+					}
+				}
+			}
+
+			function Ocultar(element, name) {
+				var i, arrayElemento, arrayPropriedade;
+				arrayElemento = element.className.split(" ");
+				arrayPropriedade = name.split(" ");
+				for (i = 0; i < arrayPropriedade.length; i++) {
+					while (arrayElemento.indexOf(arrayPropriedade[i]) > -1) {
+			    		// se tiver a propriedade "show", retira
+			    		arrayElemento.splice(arrayElemento.indexOf(arrayPropriedade[i]), 1);     
+			    	}
+				}
+				element.className = arrayElemento.join(" ");
+			}
+
+			$(".btn").click ( function() {
+				var antigo = $(".ativo");
+				$(antigo[0]).toggleClass("ativo");
+				if (antigo.is("#nome")) {
+					$(".caixa-menu").toggleClass("aberta");
+				}
+				$(this).toggleClass("ativo");
+			});
+
+			$("#nome").click( function() {
+				$(".caixa-menu").toggleClass("aberta");
+			})
+		</script>
+	</body>
+</html>

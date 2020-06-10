@@ -104,7 +104,6 @@ function mostrarMais( event ) {
 }
 
 function minimizarTrabalho() {
-	console.log("chamou minimiza trabalho");
 	var trabalhoAtivo = $(".expandido")
 	trabalhoAtivo.removeClass("expandido");
 	trabalhoAtivo.find("img").removeClass("imagem-ativa");

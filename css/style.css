@@ -226,7 +226,8 @@ p em {
 	}
 
 	.caixa-menu ul {
-		display: block;
+		display: grid;
+		position: relative;
 		width: 100%;
 		margin: 12px auto 0;
 	}
@@ -234,7 +235,7 @@ p em {
 	.trabalhos {
 		width: 100%;
 		grid-template-columns: repeat(1, 1fr);
-		margin: 0 auto 240px;
+		margin: 0 auto 280px;
 	}
 
 	.expandido {
@@ -250,25 +251,4 @@ p em {
 		height: auto;
 		float: none;
 	}
-
-	/*.nome {
-		position: static;
-		padding-top: 12px;
-		text-align: center;
-	}
-
-	nav {
-		position: absolute;
-		bottom: 0px;
-		padding: 12px;
-	}
-
-	.trabalhos, .tag {
-		width: 100%;
-		margin: 0px;
-	}
-
-	.tag {
-		padding: 12px;
-	}*/
 }

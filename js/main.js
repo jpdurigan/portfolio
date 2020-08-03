@@ -40,10 +40,12 @@ function abrirSite() {
 	var tempoAnimacao = 1000;
 	animarCanivete(tempoAnimacao);
 	setTimeout(function() {
+		$(".btn").addClass("inline-block");
 		$(".btn").fadeIn();
 		$(".container-logo").removeClass("container-logo-centralizado");
 		$(".caixa-menu").removeClass("menu-aberto");
 		$(".nome").removeClass("nome-click");
+		filtrarPor({data: {id: 'trab'}});
 	}, tempoAnimacao);
 }
 
